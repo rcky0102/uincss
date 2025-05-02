@@ -1,0 +1,577 @@
+/* Doctor Messages Styles */
+
+/* Messages Container */
+.messages-container {
+    display: flex;
+    background-color: white;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow);
+    height: calc(100vh - 200px);
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+  
+  /* Messages Sidebar */
+  .messages-sidebar {
+    width: 350px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+  }
+  
+  .messages-search {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+  }
+  
+  .messages-search .search-input {
+    flex: 1;
+  }
+  
+  .messages-filters {
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+  }
+  
+  .filter-count {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    margin-left: 5px;
+  }
+  
+  .messages-list {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .message-preview {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+  }
+  
+  .message-preview:hover {
+    background-color: rgba(0, 66, 88, 0.05);
+  }
+  
+  .message-preview.active {
+    background-color: rgba(0, 66, 88, 0.1);
+  }
+  
+  .message-preview.unread {
+    font-weight: bold;
+  }
+  
+  .message-preview.unread .message-sender,
+  .message-preview.unread .message-subject {
+    color: var(--primary);
+  }
+  
+  .message-avatar {
+    margin-right: 15px;
+  }
+  
+  .message-avatar .avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .message-info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .message-sender {
+    font-weight: bold;
+  }
+  
+  .message-time {
+    font-size: 12px;
+    color: var(--text-light);
+  }
+  
+  .message-subject {
+    margin-bottom: 5px;
+  }
+  
+  .message-snippet {
+    font-size: 14px;
+    color: var(--text-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .message-indicators {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+  }
+  
+  .message-priority {
+    color: var(--danger);
+  }
+  
+  .message-priority.high {
+    color: var(--danger);
+  }
+  
+  .message-priority.medium {
+    color: var(--warning);
+  }
+  
+  .message-attachment {
+    color: var(--text-light);
+  }
+  
+  .message-flag {
+    color: var(--warning);
+  }
+  
+  /* Message Content */
+  .message-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .message-header-bar {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #f9f9f9;
+  }
+  
+  .message-subject-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .message-subject-line h3 {
+    color: var(--primary);
+    margin: 0;
+  }
+  
+  .message-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  
+  .message-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .message-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Patient Info Banner */
+  .patient-info-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f7fa;
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .patient-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .patient-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--primary);
+    margin-bottom: 5px;
+  }
+  
+  .patient-details {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  
+  .patient-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Message Body */
+  .message-body {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .message-text {
+    line-height: 1.6;
+  }
+  
+  .message-text p {
+    margin-bottom: 15px;
+  }
+  
+  .message-text ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+  }
+  
+  .message-text ul li {
+    margin-bottom: 5px;
+  }
+  
+  /* Message History */
+  .message-history {
+    padding: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  .message-history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .message-history-header h4 {
+    color: var(--primary);
+    margin: 0;
+  }
+  
+  .btn-link {
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+  
+  .message-history-item {
+    background-color: white;
+    border-radius: var(--border-radius-sm);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--primary-light);
+  }
+  
+  .message-history-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  
+  .message-history-text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .message-history-text p {
+    margin-bottom: 10px;
+  }
+  
+  /* Reply Box */
+  .reply-box {
+    padding: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .reply-box h4 {
+    color: var(--primary);
+    margin-bottom: 15px;
+  }
+  
+  .reply-templates {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .reply-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    resize: none;
+    margin-bottom: 15px;
+    font-family: inherit;
+    font-size: 14px;
+  }
+  
+  .reply-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .reply-checkboxes {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .reply-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    border-radius: var(--border-radius-sm);
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow);
+  }
+  
+  .modal-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-header h3 {
+    color: var(--primary);
+    margin: 0;
+  }
+  
+  .close-modal {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--text-light);
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  /* Form Elements */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+  }
+  
+  .recipient-input-container {
+    position: relative;
+  }
+  
+  .recipient-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 8px 8px;
+    box-shadow: var(--shadow);
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+  }
+  
+  .recipient-suggestion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .recipient-suggestion:hover {
+    background-color: rgba(0, 66, 88, 0.05);
+  }
+  
+  .recipient-info {
+    flex: 1;
+  }
+  
+  .recipient-name {
+    font-weight: bold;
+  }
+  
+  .recipient-type {
+    font-size: 12px;
+    color: var(--text-light);
+  }
+  
+  .message-options {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .messages-container {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .messages-sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      max-height: 300px;
+    }
+  
+    .patient-info-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+  
+    .patient-actions {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .message-header-bar {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .message-actions {
+      align-self: flex-end;
+    }
+  
+    .reply-options {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+  
+    .reply-actions {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  
+    .modal-content {
+      width: 90%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .message-meta {
+      flex-direction: column;
+      gap: 5px;
+    }
+  
+    .reply-checkboxes {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .reply-actions {
+      flex-direction: column;
+    }
+  
+    .reply-actions button {
+      width: 100%;
+    }
+  
+    .modal-actions {
+      flex-direction: column;
+    }
+  
+    .modal-actions button {
+      width: 100%;
+    }
+    
+  }
+  

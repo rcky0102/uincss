@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages | Medical Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="doctor-messages.css">
+    <link rel="stylesheet" href="styles-additions.css">
+    <link rel="stylesheet" href="patient-styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <a href="index.html" class="logo">MediCare Clinic</a>
+            <div class="header-actions">
+                <button class="btn-icon notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">5</span>
+                </button>
+                <div class="dropdown">
+                    <button class="avatar-btn">
+                        <div class="avatar">
+                            <span class="avatar-fallback">DR</span>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-header">
+                            <p class="user-name">Dr. Sarah Johnson</p>
+                            <p class="user-email">sarah.johnson@example.com</p>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item text-danger">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <a href="index.html" class="sidebar-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="appointments.html" class="sidebar-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Appointments</span>
+                    </a>
+                    <a href="patients.html" class="sidebar-item">
+                        <i class="fas fa-user"></i>
+                        <span>Patients</span>
+                    </a>
+                    <a href="medical-records.html" class="sidebar-item">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Medical Records</span>
+                    </a>
+                    <a href="prescriptions.html" class="sidebar-item">
+                        <i class="fas fa-pills"></i>
+                        <span>Prescriptions</span>
+                    </a>
+                    <a href="schedule.html" class="sidebar-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                    <a href="doctor-messages.html" class="sidebar-item active">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="page-header-with-actions">
+                    <div>
+                        <h1>Messages</h1>
+                        <p class="text-muted">Manage patient communications</p>
+                    </div>
+                    <div class="header-buttons">
+                        <button class="btn btn-primary" id="compose-message">
+                            <i class="fas fa-plus"></i> New Message
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Messages Container -->
+                <div class="messages-container">
+                    <!-- Messages Sidebar -->
+                    <div class="messages-sidebar">
+                        <div class="messages-search">
+                            <input type="text" placeholder="Search messages..." class="search-input">
+                            <button class="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="messages-filters">
+                            <button class="filter-btn active">All</button>
+                            <button class="filter-btn">Unread <span class="filter-count">3</span></button>
+                            <button class="filter-btn">Flagged</button>
+                            <button class="filter-btn">Sent</button>
+                            <button class="filter-btn">Archived</button>
+                        </div>
+                        <div class="messages-list">
+                            <div class="message-preview active unread">
+                                <div class="message-avatar">
+                                    <div class="avatar">
+                                        <span class="avatar-fallback">JD</span>
+                                    </div>
+                                </div>
+                                <div class="message-info">
+                                    <div class="message-header">
+                                        <div class="message-sender">John Doe</div>
+                                        <div class="message-time">10:30 AM</div>
+                                    </div>
+                                    <div class="message-subject">Question about medication</div>
+                                    <div class="message-snippet">I've been experiencing some side effects from the new medication you prescribed. I'm having...</div>
+                                </div>
+                                <div class="message-indicators">
+                                    <span class="message-priority high" title="High Priority"><i class="fas fa-exclamation-circle"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="message-preview unread">
+                                <div class="message-avatar">
+                                    <div class="avatar">
+                                        <span class="avatar-fallback">EM</span>
+                                    </div>
+                                </div>
+                                <div class="message-info">
+                                    <div class="message-header">
+                                        <div class="message-sender">Emily Martinez</div>
+                                        <div class="message-time">Yesterday</div>
+                                    </div>
+                                    <div class="message-subject">Follow-up appointment</div>
+                                    <div class="message-snippet">Thank you for seeing me last week. I wanted to schedule a follow-up appointment to discuss...</div>
+                                </div>
+                            </div>
+
+                            <div class="message-preview unread">
+                                <div class="message-avatar">
+                                    <div class="avatar">
+                                        <span class="avatar-fallback">RW</span>
+                                    </div>
+                                </div>
+                                <div class="message-info">
+                                    <div class="message-header">
+                                        <div class="message-sender">Dr. Robert Williams</div>
+                                        <div class="message-time">Yesterday</div>
+                                    </div>
+                                    <div class="message-subject">Patient referral</div>
+                                    <div class="message-snippet">I'm referring a patient to you for consultation regarding persistent migraines. The patient...</div>
+                                </div>
+                                <div class="message-indicators">
+                                    <span class="message-attachment" title="Has Attachment"><i class="fas fa-paperclip"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="message-preview">
+                                <div class="message-avatar">
+                                    <div class="avatar">
+                                        <span class="avatar-fallback">MC</span>
+                                    </div>
+                                </div>
+                                <div class="message-info">
+                                    <div class="message-header">
+                                        <div class="message-sender">Michael Chen</div>
+                                        <div class="message-time">Mar 20</div>
+                                    </div>
+                                    <div class="message-subject">Test results question</div>
+                                    <div class="message-snippet">I received my blood test results through the portal, but I'm not sure how to interpret the...</div>
+                                </div>
+                            </div>
+
+                            <div class="message-preview">
+                                <div class="message-avatar">
+                                    <div class="avatar">
+                                        <span class="avatar-fallback">SB</span>
+                                    </div>
+                                </div>
+                                <div class="message-info">
+                                    <div class="message-header">
+                                        <div class="message-sender">Sophia Brown</div>
+                                        <div class="message-time">Mar 18</div>
+                                    </div>
+                                    <div class="message-subject">Prescription refill request</div>
+                                    <div class="message-snippet">I need a refill for my hypertension medication. I'm down to my last few pills and would...</div>
+                                </div>
+                                <div class="message-indicators">
+                                    <span class="message-flag" title="Flagged"><i class="fas fa-flag"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="message-preview">
+                                <div class="message-avatar">
+                                    <div class="avatar">
+                                        <span class="avatar-fallback">DT</span>
+                                    </div>
+                                </div>
+                                <div class="message-info">
+                                    <div class="message-header">
+                                        <div class="message-sender">David Thompson</div>
+                                        <div class="message-time">Mar 15</div>
+                                    </div>
+                                    <div class="message-subject">Thank you</div>
+                                    <div class="message-snippet">I just wanted to thank you for the excellent care you provided during my recent visit. I'm...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Content -->
+                    <div class="message-content">
+                        <div class="message-header-bar">
+                            <div class="message-title">
+                                <div class="message-subject-line">
+                                    <h3>Question about medication</h3>
+                                    <span class="message-priority high" title="High Priority"><i class="fas fa-exclamation-circle"></i></span>
+                                </div>
+                                <div class="message-meta">
+                                    <span><i class="fas fa-user"></i> From: John Doe (Patient)</span>
+                                    <span><i class="fas fa-user-md"></i> To: Dr. Sarah Johnson</span>
+                                    <span><i class="fas fa-clock"></i> May 1, 2025, 10:30 AM</span>
+                                </div>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-icon" title="Reply">
+                                    <i class="fas fa-reply"></i>
+                                </button>
+                                <button class="btn-icon" title="Forward">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                                <button class="btn-icon" title="Flag">
+                                    <i class="fas fa-flag"></i>
+                                </button>
+                                <button class="btn-icon" title="Print">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                                <div class="dropdown">
+                                    <button class="btn-icon" title="More Actions">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a href="#" class="dropdown-item"><i class="fas fa-archive"></i> Archive</a>
+                                        <a href="#" class="dropdown-item"><i class="fas fa-user-plus"></i> Add to Patient Record</a>
+                                        <a href="#" class="dropdown-item"><i class="fas fa-tag"></i> Mark as Resolved</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="#" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message-body">
+                            <div class="patient-info-banner">
+                                <div class="patient-info">
+                                    <div class="patient-name">John Doe</div>
+                                    <div class="patient-details">
+                                        <span>DOB: 05/12/1980 (45y)</span>
+                                        <span>MRN: #12345678</span>
+                                    </div>
+                                </div>
+                                <div class="patient-actions">
+                                    <button class="btn btn-sm btn-outline">View Profile</button>
+                                    <button class="btn btn-sm btn-outline">Medical Records</button>
+                                </div>
+                            </div>
+
+                            <div class="message-text">
+                                <p>Dear Dr. Johnson,</p>
+                                <p>I've been experiencing some side effects from the new medication you prescribed. I'm having headaches and dizziness, especially in the morning. These symptoms started about 3 days after I began taking the medication.</p>
+                                <p>Should I continue taking it or should I stop? Is there an alternative medication that might have fewer side effects?</p>
+                                <p>Also, I noticed my blood pressure readings have been a bit higher than usual. Here are my readings from the past week:</p>
+                                <ul>
+                                    <li>Monday: 145/90</li>
+                                    <li>Tuesday: 142/88</li>
+                                    <li>Wednesday: 148/92</li>
+                                    <li>Thursday: 140/85</li>
+                                    <li>Friday: 146/89</li>
+                                </ul>
+                                <p>Thank you for your help.</p>
+                                <p>Best regards,<br>John Doe</p>
+                            </div>
+                        </div>
+
+                        <div class="message-history">
+                            <div class="message-history-header">
+                                <h4>Previous Messages</h4>
+                                <button class="btn-link">Show All</button>
+                            </div>
+                            <div class="message-history-item">
+                                <div class="message-history-meta">
+                                    <span><i class="fas fa-user-md"></i> Dr. Sarah Johnson</span>
+                                    <span><i class="fas fa-clock"></i> Apr 20, 2025</span>
+                                </div>
+                                <div class="message-history-text">
+                                    <p>Hello Mr. Doe,</p>
+                                    <p>Based on your latest blood pressure readings, I'm prescribing Lisinopril 10mg once daily. Please take it in the morning with or without food.</p>
+                                    <p>Monitor your blood pressure daily and let me know if you experience any side effects.</p>
+                                    <p>Best regards,<br>Dr. Sarah Johnson</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reply-box">
+                            <h4>Reply</h4>
+                            <div class="reply-templates">
+                                <button class="btn btn-sm btn-outline template-btn">Side Effects Response</button>
+                                <button class="btn btn-sm btn-outline template-btn">Medication Adjustment</button>
+                                <button class="btn btn-sm btn-outline template-btn">Follow-up Request</button>
+                            </div>
+                            <textarea placeholder="Type your reply here..." rows="6" class="reply-textarea"></textarea>
+                            <div class="reply-options">
+                                <div class="reply-checkboxes">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> Add to patient record
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> Mark as high priority
+                                    </label>
+                                </div>
+                                <div class="reply-actions">
+                                    <button class="btn btn-outline">
+                                        <i class="fas fa-paperclip"></i> Attach
+                                    </button>
+                                    <button class="btn btn-outline">
+                                        <i class="fas fa-prescription"></i> Add Prescription
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-paper-plane"></i> Send
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compose Message Modal -->
+                <div class="modal" id="compose-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>New Message</h3>
+                            <button class="close-modal"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="recipient">To:</label>
+                                <div class="recipient-input-container">
+                                    <input type="text" id="recipient" placeholder="Search for patient or provider..." class="form-control">
+                                    <div class="recipient-suggestions">
+                                        <div class="recipient-suggestion">
+                                            <div class="avatar">
+                                                <span class="avatar-fallback">JD</span>
+                                            </div>
+                                            <div class="recipient-info">
+                                                <div class="recipient-name">John Doe</div>
+                                                <div class="recipient-type">Patient</div>
+                                            </div>
+                                        </div>
+                                        <div class="recipient-suggestion">
+                                            <div class="avatar">
+                                                <span class="avatar-fallback">EM</span>
+                                            </div>
+                                            <div class="recipient-info">
+                                                <div class="recipient-name">Emily Martinez</div>
+                                                <div class="recipient-type">Patient</div>
+                                            </div>
+                                        </div>
+                                        <div class="recipient-suggestion">
+                                            <div class="avatar">
+                                                <span class="avatar-fallback">RW</span>
+                                            </div>
+                                            <div class="recipient-info">
+                                                <div class="recipient-name">Dr. Robert Williams</div>
+                                                <div class="recipient-type">Provider</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject:</label>
+                                <input type="text" id="subject" placeholder="Enter subject" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-body">Message:</label>
+                                <textarea id="message-body" rows="8" placeholder="Type your message here..." class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="message-options">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> Add to patient record
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> Mark as high priority
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="modal-actions">
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-paperclip"></i> Attach
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-prescription"></i> Add Prescription
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-save"></i> Save Draft
+                                </button>
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownBtns = document.querySelectorAll('.dropdown .btn-icon, .dropdown .avatar-btn');
+            
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const menu = this.nextElementSibling;
+                    menu.classList.toggle('show');
+                    
+                    // Close other dropdowns
+                    dropdownBtns.forEach(otherBtn => {
+                        if (otherBtn !== btn) {
+                            const otherMenu = otherBtn.nextElementSibling;
+                            if (otherMenu) {
+                                otherMenu.classList.remove('show');
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            window.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+            });
+
+            // Filter buttons
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Message preview selection
+            const messagePreviews = document.querySelectorAll('.message-preview');
+            messagePreviews.forEach(preview => {
+                preview.addEventListener('click', function() {
+                    messagePreviews.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                    this.classList.remove('unread');
+                });
+            });
+
+            // Compose message modal
+            const composeBtn = document.getElementById('compose-message');
+            const composeModal = document.getElementById('compose-modal');
+            const closeModal = document.querySelector('.close-modal');
+            
+            composeBtn.addEventListener('click', function() {
+                composeModal.style.display = 'flex';
+            });
+            
+            closeModal.addEventListener('click', function() {
+                composeModal.style.display = 'none';
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === composeModal) {
+                    composeModal.style.display = 'none';
+                }
+            });
+
+            // Template buttons
+            const templateBtns = document.querySelectorAll('.template-btn');
+            const replyTextarea = document.querySelector('.reply-textarea');
+            
+            templateBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    let template = '';
+                    
+                    switch(this.textContent) {
+                        case 'Side Effects Response':
+                            template = "Dear John,\n\nThank you for letting me know about the side effects you're experiencing. The symptoms you describe can sometimes occur when starting this medication. However, given the severity and your blood pressure readings, I recommend:\n\n1. Reduce the dosage to half a tablet daily for the next week.\n2. Continue monitoring your blood pressure daily.\n3. If dizziness persists or worsens, please call our office immediately.\n\nI'd like to see you for a follow-up appointment next week to reassess your response to the medication.\n\nBest regards,\nDr. Sarah Johnson";
+                            break;
+                        case 'Medication Adjustment':
+                            template = "Dear John,\n\nBased on your reported side effects and blood pressure readings, I'm adjusting your medication regimen:\n\n1. Please discontinue the current medication.\n2. I'm prescribing [New Medication] at [Dosage] to be taken once daily.\n3. This alternative medication typically has fewer side effects while effectively managing blood pressure.\n\nPlease pick up your new prescription at your preferred pharmacy. Continue monitoring your blood pressure and report any new symptoms.\n\nBest regards,\nDr. Sarah Johnson";
+                            break;
+                        case 'Follow-up Request':
+                            template = "Dear John,\n\nThank you for sharing this information about your medication response. Given your symptoms and blood pressure readings, I believe we should schedule a follow-up appointment to evaluate your condition in person.\n\nPlease contact our office to schedule an appointment within the next 5-7 days. In the meantime, continue taking your medication as prescribed unless you experience severe dizziness or fainting.\n\nBest regards,\nDr. Sarah Johnson";
+                            break;
+                    }
+                    
+                    replyTextarea.value = template;
+                });
+            });
+
+            // Recipient input functionality
+            const recipientInput = document.getElementById('recipient');
+            const recipientSuggestions = document.querySelector('.recipient-suggestions');
+            
+            recipientInput.addEventListener('focus', function() {
+                recipientSuggestions.style.display = 'block';
+            });
+            
+            recipientInput.addEventListener('blur', function() {
+                // Delay hiding to allow for clicking on suggestions
+                setTimeout(() => {
+                    recipientSuggestions.style.display = 'none';
+                }, 200);
+            });
+            
+            const recipientSuggestion = document.querySelectorAll('.recipient-suggestion');
+            recipientSuggestion.forEach(suggestion => {
+                suggestion.addEventListener('click', function() {
+                    const name = this.querySelector('.recipient-name').textContent;
+                    recipientInput.value = name;
+                    recipientSuggestions.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Schedule | Medical Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <a href="index.html" class="logo">MediCare Clinic</a>
+            <div class="header-actions">
+                <button class="btn-icon notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="dropdown">
+                    <button class="avatar-btn">
+                        <div class="avatar">
+                            <span class="avatar-fallback">DR</span>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-header">
+                            <p class="user-name">Dr. John Smith</p>
+                            <p class="user-email">john.smith@example.com</p>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item text-danger">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <a href="index.html" class="sidebar-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="appointments.html" class="sidebar-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Appointments</span>
+                    </a>
+                    <a href="patients.html" class="sidebar-item">
+                        <i class="fas fa-user"></i>
+                        <span>Patients</span>
+                    </a>
+                    <a href="medical-records.html" class="sidebar-item">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Medical Records</span>
+                    </a>
+                    <a href="prescriptions.html" class="sidebar-item">
+                        <i class="fas fa-pills"></i>
+                        <span>Prescriptions</span>
+                    </a>
+                    <a href="schedule.html" class="sidebar-item active">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="page-header-with-actions">
+                    <div>
+                        <h1>Create Schedule Entry</h1>
+                        <p class="text-muted">Add a new event to your schedule</p>
+                    </div>
+                    <a href="schedule.html" class="btn btn-outline">
+                        <i class="fas fa-arrow-left"></i> Back to Schedule
+                    </a>
+                </div>
+
+                <!-- Create Schedule Form -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Schedule Details</h3>
+                    </div>
+                    <form class="schedule-form" action="schedule.html" method="get">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="event-title">Event Title*</label>
+                                <input type="text" id="event-title" name="event-title" class="form-control" placeholder="Enter event title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="event-type">Event Type*</label>
+                                <select id="event-type" name="event-type" class="form-control" required>
+                                    <option value="">Select Event Type</option>
+                                    <option value="appointment">Patient Appointment</option>
+                                    <option value="meeting">Staff Meeting</option>
+                                    <option value="break">Break</option>
+                                    <option value="personal">Personal</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="event-date">Date*</label>
+                                <input type="date" id="event-date" name="event-date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="event-color">Color</label>
+                                <select id="event-color" name="event-color" class="form-control">
+                                    <option value="blue">Blue</option>
+                                    <option value="green">Green</option>
+                                    <option value="purple">Purple</option>
+                                    <option value="red">Red</option>
+                                    <option value="orange">Orange</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="start-time">Start Time*</label>
+                                <input type="time" id="start-time" name="start-time" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="end-time">End Time*</label>
+                                <input type="time" id="end-time" name="end-time" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-location">Location</label>
+                            <input type="text" id="event-location" name="event-location" class="form-control" placeholder="Enter location">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-description">Description</label>
+                            <textarea id="event-description" name="event-description" class="form-control" rows="3" placeholder="Enter event description"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Recurrence</label>
+                            <div class="recurrence-options">
+                                <label class="radio-container">
+                                    <input type="radio" name="recurrence" value="none" checked>
+                                    <span class="radio-label">None</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="recurrence" value="daily">
+                                    <span class="radio-label">Daily</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="recurrence" value="weekly">
+                                    <span class="radio-label">Weekly</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="recurrence" value="monthly">
+                                    <span class="radio-label">Monthly</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group recurrence-details" id="recurrence-details" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="recurrence-end">End After</label>
+                                    <input type="number" id="recurrence-end" name="recurrence-end" class="form-control" min="1" value="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recurrence-unit">Occurrences</label>
+                                    <select id="recurrence-unit" name="recurrence-unit" class="form-control">
+                                        <option value="occurrences">Occurrences</option>
+                                        <option value="date">Specific Date</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Notifications</label>
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="notification-email" value="1">
+                                    <span>Email Notification</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="notification-sms" value="1">
+                                    <span>SMS Notification</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <a href="schedule.html" class="btn btn-outline">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Create Schedule</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownBtns = document.querySelectorAll('.dropdown .btn-icon, .dropdown .avatar-btn');
+            
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const menu = this.nextElementSibling;
+                    menu.classList.toggle('show');
+                    
+                    // Close other dropdowns
+                    dropdownBtns.forEach(otherBtn => {
+                        if (otherBtn !== btn) {
+                            const otherMenu = otherBtn.nextElementSibling;
+                            if (otherMenu) {
+                                otherMenu.classList.remove('show');
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            window.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+            });
+
+            // Recurrence options toggle
+            const recurrenceOptions = document.querySelectorAll('input[name="recurrence"]');
+            const recurrenceDetails = document.getElementById('recurrence-details');
+            
+            recurrenceOptions.forEach(option => {
+                option.addEventListener('change', function() {
+                    if (this.value !== 'none') {
+                        recurrenceDetails.style.display = 'block';
+                    } else {
+                        recurrenceDetails.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

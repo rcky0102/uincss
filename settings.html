@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Medical Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-additions.css">
+    <link rel="stylesheet" href="admin-styles-additions.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <a href="index.html" class="logo">MediCare Clinic</a>
+            <div class="header-actions">
+                <button class="btn-icon notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">5</span>
+                </button>
+                <div class="dropdown">
+                    <button class="avatar-btn">
+                        <div class="avatar">
+                            <span class="avatar-fallback">AD</span>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-header">
+                            <p class="user-name">Admin User</p>
+                            <p class="user-email">admin@example.com</p>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item text-danger">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <a href="index.html" class="sidebar-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="users.html" class="sidebar-item">
+                        <i class="fas fa-users"></i>
+                        <span>Users</span>
+                    </a>
+                    <a href="doctors.html" class="sidebar-item">
+                        <i class="fas fa-user-md"></i>
+                        <span>Doctors</span>
+                    </a>
+                    <a href="appointments.html" class="sidebar-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Appointments</span>
+                    </a>
+                    <a href="services.html" class="sidebar-item">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Services</span>
+                    </a>
+                    <a href="billing.html" class="sidebar-item">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Billing</span>
+                    </a>
+                    <a href="reports.html" class="sidebar-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Reports</span>
+                    </a>
+                    <a href="settings.html" class="sidebar-item active">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </nav>
+                <a href="#" class="sidebar-item text-danger">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="page-header-with-actions">
+                    <div>
+                        <h1>Settings</h1>
+                        <p class="text-muted">Configure system settings</p>
+                    </div>
+                    <div class="header-buttons">
+                        <button class="btn btn-primary" id="save-settings-btn">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-container">
+                    <div class="settings-sidebar">
+                        <div class="settings-nav">
+                            <a href="#general" class="settings-nav-item active">
+                                <i class="fas fa-sliders-h"></i> General
+                            </a>
+                            <a href="#clinic" class="settings-nav-item">
+                                <i class="fas fa-hospital"></i> Clinic Information
+                            </a>
+                            <a href="#appointments" class="settings-nav-item">
+                                <i class="fas fa-calendar"></i> Appointments
+                            </a>
+                            <a href="#notifications" class="settings-nav-item">
+                                <i class="fas fa-bell"></i> Notifications
+                            </a>
+                            <a href="#billing" class="settings-nav-item">
+                                <i class="fas fa-credit-card"></i> Billing & Payments
+                            </a>
+                            <a href="#security" class="settings-nav-item">
+                                <i class="fas fa-shield-alt"></i> Security
+                            </a>
+                            <a href="#integrations" class="settings-nav-item">
+                                <i class="fas fa-plug"></i> Integrations
+                            </a>
+                            <a href="#backup" class="settings-nav-item">
+                                <i class="fas fa-database"></i> Backup & Restore
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="settings-content">
+                        <!-- General Settings -->
+                        <div id="general" class="settings-section active">
+                            <h2 class="settings-title">General Settings</h2>
+                            
+                            <div class="form-group">
+                                <label for="system-name">System Name</label>
+                                <input type="text" id="system-name" class="form-control" value="MediCare Clinic">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="timezone">Timezone</label>
+                                <select id="timezone" class="form-control">
+                                    <option value="UTC-8">Pacific Time (UTC-8)</option>
+                                    <option value="UTC-7">Mountain Time (UTC-7)</option>
+                                    <option value="UTC-6">Central Time (UTC-6)</option>
+                                    <option value="UTC-5" selected>Eastern Time (UTC-5)</option>
+                                    <option value="UTC+0">UTC</option>
+                                    <option value="UTC+1">Central European Time (UTC+1)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="date-format">Date Format</label>
+                                <select id="date-format" class="form-control">
+                                    <option value="MM/DD/YYYY" selected>MM/DD/YYYY</option>
+                                    <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                                    <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="time-format">Time Format</label>
+                                <select id="time-format" class="form-control">
+                                    <option value="12" selected>12-hour (AM/PM)</option>
+                                    <option value="24">24-hour</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="language">Language</label>
+                                <select id="language" class="form-control">
+                                    <option value="en" selected>English</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="fr">French</option>
+                                    <option value="de">German</option>
+                                    <option value="zh">Chinese</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Theme</label>
+                                <div class="theme-options">
+                                    <div class="theme-option active">
+                                        <div class="theme-preview light-theme"></div>
+                                        <span>Light</span>
+                                    </div>
+                                    <div class="theme-option">
+                                        <div class="theme-preview dark-theme"></div>
+                                        <span>Dark</span>
+                                    </div>
+                                    <div class="theme-option">
+                                        <div class="theme-preview blue-theme"></div>
+                                        <span>Blue</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Clinic Information -->
+                        <div id="clinic" class="settings-section">
+                            <h2 class="settings-title">Clinic Information</h2>
+                            
+                            <div class="form-group">
+                                <label for="clinic-name">Clinic Name</label>
+                                <input type="text" id="clinic-name" class="form-control" value="MediCare Clinic">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="clinic-address">Address</label>
+                                <textarea id="clinic-address" class="form-control" rows="3">123 Medical Center Drive
+New York, NY 10001
+United States</textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="clinic-phone">Phone Number</label>
+                                    <input type="tel" id="clinic-phone" class="form-control" value="+1 (555) 123-4567">
+                                </div>
+                                <div class="form-group">
+                                    <label for="clinic-email">Email</label>
+                                    <input type="email" id="clinic-email" class="form-control" value="info@medicareclinic.com">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="clinic-website">Website</label>
+                                <input type="url" id="clinic-website" class="form-control" value="https://www.medicareclinic.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="clinic-logo">Clinic Logo</label>
+                                <div class="file-upload">
+                                    <input type="file" id="clinic-logo" class="file-input">
+                                    <button class="btn btn-outline">
+                                        <i class="fas fa-upload"></i> Upload Logo
+                                    </button>
+                                    <span class="file-name">logo.png</span>
+                                </div>
+                                <div class="form-text">Recommended size: 200x200 pixels, PNG or JPG format</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="clinic-hours">Business Hours</label>
+                                <div class="business-hours">
+                                    <div class="business-day">
+                                        <div class="day-name">Monday</div>
+                                        <div class="day-hours">
+                                            <select class="time-select">
+                                                <option value="08:00" selected>8:00 AM</option>
+                                                <option value="09:00">9:00 AM</option>
+                                                <option value="10:00">10:00 AM</option>
+                                            </select>
+                                            <span>to</span>
+                                            <select class="time-select">
+                                                <option value="17:00" selected>5:00 PM</option>
+                                                <option value="18:00">6:00 PM</option>
+                                                <option value="19:00">7:00 PM</option>
+                                            </select>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" checked> Open
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="business-day">
+                                        <div class="day-name">Tuesday</div>
+                                        <div class="day-hours">
+                                            <select class="time-select">
+                                                <option value="08:00" selected>8:00 AM</option>
+                                                <option value="09:00">9:00 AM</option>
+                                                <option value="10:00">10:00 AM</option>
+                                            </select>
+                                            <span>to</span>
+                                            <select class="time-select">
+                                                <option value="17:00" selected>5:00 PM</option>
+                                                <option value="18:00">6:00 PM</option>
+                                                <option value="19:00">7:00 PM</option>
+                                            </select>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" checked> Open
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="business-day">
+                                        <div class="day-name">Wednesday</div>
+                                        <div class="day-hours">
+                                            <select class="time-select">
+                                                <option value="08:00" selected>8:00 AM</option>
+                                                <option value="09:00">9:00 AM</option>
+                                                <option value="10:00">10:00 AM</option>
+                                            </select>
+                                            <span>to</span>
+                                            <select class="time-select">
+                                                <option value="17:00" selected>5:00 PM</option>
+                                                <option value="18:00">6:00 PM</option>
+                                                <option value="19:00">7:00 PM</option>
+                                            </select>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" checked> Open
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="business-day">
+                                        <div class="day-name">Thursday</div>
+                                        <div class="day-hours">
+                                            <select class="time-select">
+                                                <option value="08:00" selected>8:00 AM</option>
+                                                <option value="09:00">9:00 AM</option>
+                                                <option value="10:00">10:00 AM</option>
+                                            </select>
+                                            <span>to</span>
+                                            <select class="time-select">
+                                                <option value="17:00" selected>5:00 PM</option>
+                                                <option value="18:00">6:00 PM</option>
+                                                <option value="19:00">7:00 PM</option>
+                                            </select>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" checked> Open
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="business-day">
+                                        <div class="day-name">Friday</div>
+                                        <div class="day-hours">
+                                            <select class="time-select">
+                                                <option value="08:00" selected>8:00 AM</option>
+                                                <option value="09:00">9:00 AM</option>
+                                                <option value="10:00">10:00 AM</option>
+                                            </select>
+                                            <span>to</span>
+                                            <select class="time-select">
+                                                <option value="17:00" selected>5:00 PM</option>
+                                                <option value="18:00">6:00 PM</option>
+                                                <option value="19:00">7:00 PM</option>
+                                            </select>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" checked> Open
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="business-day">
+                                        <div class="day-name">Saturday</div>
+                                        <div class="day-hours">
+                                            <select class="time-select">
+                                                <option value="09:00" selected>9:00 AM</option>
+                                                <option value="10:00">10:00 AM</option>
+                                                <option value="11:00">11:00 AM</option>
+                                            </select>
+                                            <span>to</span>
+                                            <select class="time-select">
+                                                <option value="13:00" selected>1:00 PM</option>
+                                                <option value="14:00">2:00 PM</option>
+                                                <option value="15:00">3:00 PM</option>
+                                            </select>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" checked> Open
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="business-day">
+                                        <div class="day-name">Sunday</div>
+                                        <div class="day-hours">
+                                            <select class="time-select" disabled>
+                                                <option value="closed">Closed</option>
+                                            </select>
+                                            <span>to</span>
+                                            <select class="time-select" disabled>
+                                                <option value="closed">Closed</option>
+                                            </select>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox"> Open
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Appointments Settings -->
+                        <div id="appointments" class="settings-section">
+                            <h2 class="settings-title">Appointment Settings</h2>
+                            
+                            <div class="form-group">
+                                <label for="appointment-duration">Default Appointment Duration (minutes)</label>
+                                <select id="appointment-duration" class="form-control">
+                                    <option value="15">15 minutes</option>
+                                    <option value="30" selected>30 minutes</option>
+                                    <option value="45">45 minutes</option>
+                                    <option value="60">60 minutes</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="appointment-buffer">Buffer Time Between Appointments (minutes)</label>
+                                <select id="appointment-buffer" class="form-control">
+                                    <option value="0">No buffer</option>
+                                    <option value="5">5 minutes</option>
+                                    <option value="10" selected>10 minutes</option>
+                                    <option value="15">15 minutes</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="appointment-advance">Advance Booking Limit (days)</label>
+                                <input type="number" id="appointment-advance" class="form-control" value="60">
+                                <div class="form-text">How many days in advance can patients book appointments</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="appointment-cancel">Cancellation Policy (hours)</label>
+                                <input type="number" id="appointment-cancel" class="form-control" value="24">
+                                <div class="form-text">Minimum hours before appointment time for cancellation without penalty</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Appointment Reminders</label>
+                                <div class="checkbox-container">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Email reminders
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> SMS reminders
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Push notifications
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="reminder-time">Send Reminders</label>
+                                <select id="reminder-time" class="form-control">
+                                    <option value="1">1 day before appointment</option>
+                                    <option value="2" selected>2 days before appointment</option>
+                                    <option value="3">3 days before appointment</option>
+                                    <option value="7">1 week before appointment</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Online Booking</label>
+                                <div class="radio-container">
+                                    <label class="radio-label">
+                                        <input type="radio" name="online-booking" value="enabled" checked> Enabled
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="online-booking" value="disabled"> Disabled
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notifications Settings -->
+                        <div id="notifications" class="settings-section">
+                            <h2 class="settings-title">Notification Settings</h2>
+                            
+                            <div class="form-group">
+                                <label>Email Notifications</label>
+                                <div class="checkbox-container">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> New appointment
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Appointment cancellation
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Appointment rescheduling
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> New patient registration
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Payment received
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> Daily summary
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>SMS Notifications</label>
+                                <div class="checkbox-container">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Appointment reminders
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Appointment cancellation
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> Appointment rescheduling
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>System Notifications</label>
+                                <div class="checkbox-container">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Low inventory alerts
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> System updates
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Security alerts
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Backup status
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email-sender">Email Sender Name</label>
+                                <input type="text" id="email-sender" class="form-control" value="MediCare Clinic">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email-from">Email From Address</label>
+                                <input type="email" id="email-from" class="form-control" value="notifications@medicareclinic.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="sms-provider">SMS Provider</label>
+                                <select id="sms-provider" class="form-control">
+                                    <option value="twilio" selected>Twilio</option>
+                                    <option value="nexmo">Nexmo</option>
+                                    <option value="aws-sns">AWS SNS</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Billing & Payments Settings -->
+                        <div id="billing" class="settings-section">
+                            <h2 class="settings-title">Billing & Payment Settings</h2>
+                            
+                            <div class="form-group">
+                                <label for="currency">Currency</label>
+                                <select id="currency" class="form-control">
+                                    <option value="USD" selected>US Dollar ($)</option>
+                                    <option value="EUR">Euro (€)</option>
+                                    <option value="GBP">British Pound (£)</option>
+                                    <option value="CAD">Canadian Dollar (C$)</option>
+                                    <option value="AUD">Australian Dollar (A$)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tax-rate">Tax Rate (%)</label>
+                                <input type="number" id="tax-rate" class="form-control" value="8.0" step="0.1">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Payment Methods</label>
+                                <div class="checkbox-container">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Cash
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Credit Card
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Debit Card
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Insurance
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> Bank Transfer
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox"> PayPal
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="payment-processor">Payment Processor</label>
+                                <select id="payment-processor" class="form-control">
+                                    <option value="stripe" selected>Stripe</option>
+                                    <option value="paypal">PayPal</option>
+                                    <option value="square">Square</option>
+                                    <option value="authorize">Authorize.net</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="invoice-prefix">Invoice Number Prefix</label>
+                                <input type="text" id="invoice-prefix" class="form-control" value="INV-">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="invoice-start">Invoice Start Number</label>
+                                <input type="number" id="invoice-start" class="form-control" value="1001">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="invoice-notes">Default Invoice Notes</label>
+                                <textarea id="invoice-notes" class="form-control" rows="3">Thank you for choosing MediCare Clinic. Payment is due within 30 days.</textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Invoice Auto-Generation</label>
+                                <div class="radio-container">
+                                    <label class="radio-label">
+                                        <input type="radio" name="invoice-auto" value="enabled" checked> Enabled
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="invoice-auto" value="disabled"> Disabled
+                                    </label>
+                                </div>
+                                <div class="form-text">Automatically generate invoices after appointments</div>
+                            </div>
+                        </div>
+
+                        <!-- Security Settings -->
+                        <div id="security" class="settings-section">
+                            <h2 class="settings-title">Security Settings</h2>
+                            
+                            <div class="form-group">
+                                <label>Two-Factor Authentication</label>
+                                <div class="radio-container">
+                                    <label class="radio-label">
+                                        <input type="radio" name="2fa" value="required"> Required for all users
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="2fa" value="optional" checked> Optional for users
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="2fa" value="disabled"> Disabled
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="session-timeout">Session Timeout (minutes)</label>
+                                <input type="number" id="session-timeout" class="form-control" value="30">
+                                <div class="form-text">Time of inactivity before automatic logout</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password-expiry">Password Expiry (days)</label>
+                                <input type="number" id="password-expiry" class="form-control" value="90">
+                                <div class="form-text">Days before users are required to change password (0 = never)</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password-length">Minimum Password Length</label>
+                                <input type="number" id="password-length" class="form-control" value="8">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Password Requirements</label>
+                                <div class="checkbox-container">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Require uppercase letters
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Require lowercase letters
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Require numbers
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Require special characters
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="login-attempts">Maximum Login Attempts</label>
+                                <input type="number" id="login-attempts" class="form-control" value="5">
+                                <div class="form-text">Number of failed login attempts before account lockout</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lockout-duration">Account Lockout Duration (minutes)</label>
+                                <input type="number" id="lockout-duration" class="form-control" value="30">
+                                <div class="form-text">Time before a locked account can attempt login again</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>IP Restriction</label>
+                                <div class="radio-container">
+                                    <label class="radio-label">
+                                        <input type="radio" name="ip-restriction" value="enabled"> Enabled
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="ip-restriction" value="disabled" checked> Disabled
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="allowed-ips">Allowed IP Addresses</label>
+                                <textarea id="allowed-ips" class="form-control" rows="3" placeholder="Enter IP addresses, one per line"></textarea>
+                                <div class="form-text">Leave blank to allow all IP addresses</div>
+                            </div>
+                        </div>
+
+                        <!-- Integrations Settings -->
+                        <div id="integrations" class="settings-section">
+                            <h2 class="settings-title">Integrations</h2>
+                            
+                            <div class="integration-card">
+                                <div class="integration-header">
+                                    <div class="integration-logo">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="integration-info">
+                                        <h3>Google Calendar</h3>
+                                        <p>Sync appointments with Google Calendar</p>
+                                    </div>
+                                    <div class="integration-status connected">
+                                        <i class="fas fa-check-circle"></i> Connected
+                                    </div>
+                                </div>
+                                <div class="integration-actions">
+                                    <button class="btn btn-outline">Configure</button>
+                                    <button class="btn btn-outline btn-danger">Disconnect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="integration-card">
+                                <div class="integration-header">
+                                    <div class="integration-logo">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="integration-info">
+                                        <h3>Stripe</h3>
+                                        <p>Process credit card payments</p>
+                                    </div>
+                                    <div class="integration-status connected">
+                                        <i class="fas fa-check-circle"></i> Connected
+                                    </div>
+                                </div>
+                                <div class="integration-actions">
+                                    <button class="btn btn-outline">Configure</button>
+                                    <button class="btn btn-outline btn-danger">Disconnect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="integration-card">
+                                <div class="integration-header">
+                                    <div class="integration-logo">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="integration-info">
+                                        <h3>Mailchimp</h3>
+                                        <p>Email marketing and newsletters</p>
+                                    </div>
+                                    <div class="integration-status not-connected">
+                                        <i class="fas fa-times-circle"></i> Not Connected
+                                    </div>
+                                </div>
+                                <div class="integration-actions">
+                                    <button class="btn btn-primary">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="integration-card">
+                                <div class="integration-header">
+                                    <div class="integration-logo">
+                                        <i class="fas fa-comment-alt"></i>
+                                    </div>
+                                    <div class="integration-info">
+                                        <h3>Twilio</h3>
+                                        <p>SMS notifications and reminders</p>
+                                    </div>
+                                    <div class="integration-status connected">
+                                        <i class="fas fa-check-circle"></i> Connected
+                                    </div>
+                                </div>
+                                <div class="integration-actions">
+                                    <button class="btn btn-outline">Configure</button>
+                                    <button class="btn btn-outline btn-danger">Disconnect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="integration-card">
+                                <div class="integration-header">
+                                    <div class="integration-logo">
+                                        <i class="fas fa-file-medical"></i>
+                                    </div>
+                                    <div class="integration-info">
+                                        <h3>Electronic Health Records (EHR)</h3>
+                                        <p>Integrate with external EHR systems</p>
+                                    </div>
+                                    <div class="integration-status not-connected">
+                                        <i class="fas fa-times-circle"></i> Not Connected
+                                    </div>
+                                </div>
+                                <div class="integration-actions">
+                                    <button class="btn btn-primary">Connect</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Backup & Restore Settings -->
+                        <div id="backup" class="settings-section">
+                            <h2 class="settings-title">Backup & Restore</h2>
+                            
+                            <div class="form-group">
+                                <label>Automatic Backups</label>
+                                <div class="radio-container">
+                                    <label class="radio-label">
+                                        <input type="radio" name="auto-backup" value="enabled" checked> Enabled
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="auto-backup" value="disabled"> Disabled
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="backup-frequency">Backup Frequency</label>
+                                <select id="backup-frequency" class="form-control">
+                                    <option value="daily" selected>Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="backup-time">Backup Time</label>
+                                <input type="time" id="backup-time" class="form-control" value="02:00">
+                                <div class="form-text">Time of day when automatic backups will run</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="backup-retention">Backup Retention (days)</label>
+                                <input type="number" id="backup-retention" class="form-control" value="30">
+                                <div class="form-text">Number of days to keep backups before automatic deletion</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Backup Storage Location</label>
+                                <div class="checkbox-container">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Local Server
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> Cloud Storage
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cloud-provider">Cloud Storage Provider</label>
+                                <select id="cloud-provider" class="form-control">
+                                    <option value="aws" selected>Amazon S3</option>
+                                    <option value="google">Google Cloud Storage</option>
+                                    <option value="azure">Microsoft Azure Blob Storage</option>
+                                    <option value="dropbox">Dropbox</option>
+                                </select>
+                            </div>
+                            
+                            <div class="backup-actions">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-download"></i> Create Manual Backup
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-upload"></i> Restore from Backup
+                                </button>
+                            </div>
+                            
+                            <div class="backup-history">
+                                <h3>Backup History</h3>
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date & Time</th>
+                                            <th>Type</th>
+                                            <th>Size</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>May 1, 2025 02:00 AM</td>
+                                            <td>Automatic</td>
+                                            <td>256 MB</td>
+                                            <td><span class="badge badge-success">Completed</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline">Download</button>
+                                                <button class="btn btn-sm btn-outline">Restore</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Apr 30, 2025 02:00 AM</td>
+                                            <td>Automatic</td>
+                                            <td>255 MB</td>
+                                            <td><span class="badge badge-success">Completed</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline">Download</button>
+                                                <button class="btn btn-sm btn-outline">Restore</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Apr 29, 2025 10:15 AM</td>
+                                            <td>Manual</td>
+                                            <td>254 MB</td>
+                                            <td><span class="badge badge-success">Completed</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline">Download</button>
+                                                <button class="btn btn-sm btn-outline">Restore</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownBtns = document.querySelectorAll('.dropdown .btn-icon, .dropdown .avatar-btn');
+            
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const menu = this.nextElementSibling;
+                    menu.classList.toggle('show');
+                    
+                    // Close other dropdowns
+                    dropdownBtns.forEach(otherBtn => {
+                        if (otherBtn !== btn) {
+                            const otherMenu = otherBtn.nextElementSibling;
+                            if (otherMenu) {
+                                otherMenu.classList.remove('show');
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            window.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+            });
+
+            // Settings navigation
+            const settingsNavItems = document.querySelectorAll('.settings-nav-item');
+            const settingsSections = document.querySelectorAll('.settings-section');
+            
+            settingsNavItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav items
+                    settingsNavItems.forEach(navItem => {
+                        navItem.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked nav item
+                    this.classList.add('active');
+                    
+                    // Hide all settings sections
+                    settingsSections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Show the corresponding settings section
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+
+            // Theme options
+            const themeOptions = document.querySelectorAll('.theme-option');
+            
+            themeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    themeOptions.forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+
+            // File upload button
+            const fileUploadBtn = document.querySelector('.file-upload .btn');
+            const fileInput = document.querySelector('.file-input');
+            const fileName = document.querySelector('.file-name');
+            
+            if (fileUploadBtn && fileInput) {
+                fileUploadBtn.addEventListener('click', function() {
+                    fileInput.click();
+                });
+                
+                fileInput.addEventListener('change', function() {
+                    if (this.files.length > 0) {
+                        fileName.textContent = this.files[0].name;
+                    }
+                });
+            }
+
+            // Business hours checkbox
+            const businessHoursCheckboxes = document.querySelectorAll('.business-day .checkbox-label input');
+            
+            businessHoursCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const dayHours = this.closest('.day-hours');
+                    const timeSelects = dayHours.querySelectorAll('.time-select');
+                    
+                    timeSelects.forEach(select => {
+                        select.disabled = !this.checked;
+                    });
+                });
+            });
+
+            // Save settings button
+            const saveSettingsBtn = document.getElementById('save-settings-btn');
+            
+            if (saveSettingsBtn) {
+                saveSettingsBtn.addEventListener('click', function() {
+                    // Show a success message
+                    alert('Settings saved successfully!');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
