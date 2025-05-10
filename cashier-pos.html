@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point of Sale | Medical Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-additions.css">
+    <link rel="stylesheet" href="cashier-styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <a href="cashier-dashboard.html" class="logo">MediCare Clinic</a>
+            <div class="header-actions">
+                <button class="btn-icon notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="dropdown">
+                    <button class="avatar-btn">
+                        <div class="avatar">
+                            <span class="avatar-fallback">CS</span>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-header">
+                            <p class="user-name">Cashier Staff</p>
+                            <p class="user-email">cashier@example.com</p>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item text-danger">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <a href="cashier-dashboard.html" class="sidebar-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="cashier-pos.html" class="sidebar-item active">
+                        <i class="fas fa-cash-register"></i>
+                        <span>Point of Sale</span>
+                    </a>
+                    <a href="cashier-invoices.html" class="sidebar-item">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <span>Invoices</span>
+                    </a>
+                    <a href="cashier-payments.html" class="sidebar-item">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Payments</span>
+                    </a>
+                    <a href="cashier-patients.html" class="sidebar-item">
+                        <i class="fas fa-user-injured"></i>
+                        <span>Patients</span>
+                    </a>
+                    <a href="cashier-reports.html" class="sidebar-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Reports</span>
+                    </a>
+                </nav>
+                <a href="#" class="sidebar-item text-danger">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="page-header-with-actions">
+                    <div>
+                        <h1>Point of Sale</h1>
+                        <p class="text-muted">Process payments and transactions</p>
+                    </div>
+                    <div class="header-buttons">
+                        <button class="btn btn-outline" id="clear-pos-btn">
+                            <i class="fas fa-times"></i> Clear
+                        </button>
+                        <button class="btn btn-primary" id="checkout-btn">
+                            <i class="fas fa-check"></i> Checkout
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pos-container">
+                    <!-- Left Side - Patient Info and Services -->
+                    <div class="pos-left">
+                        <!-- Patient Selection -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Patient Information</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="pos-patient">Select Patient</label>
+                                    <div class="search-with-dropdown">
+                                        <div class="search-box">
+                                            <i class="fas fa-search"></i>
+                                            <input type="text" id="pos-patient-search" placeholder="Search patient...">
+                                        </div>
+                                        <select id="pos-patient" class="form-control">
+                                            <option value="">Select patient</option>
+                                            <option value="1">John Doe</option>
+                                            <option value="2">Jane Smith</option>
+                                            <option value="3">Robert Brown</option>
+                                            <option value="4">Emma Wilson</option>
+                                            <option value="5">Michael Clark</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="patient-info-display">
+                                    <div class="patient-info-header">
+                                        <div class="patient-avatar">
+                                            <span class="avatar-fallback">JD</span>
+                                        </div>
+                                        <div class="patient-details">
+                                            <h3>John Doe</h3>
+                                            <p>ID: PAT-2025-001</p>
+                                        </div>
+                                    </div>
+                                    <div class="patient-info-body">
+                                        <div class="info-row">
+                                            <div class="info-label">Date of Birth:</div>
+                                            <div class="info-value">Jan 15, 1980</div>
+                                        </div>
+                                        <div class="info-row">
+                                            <div class="info-label">Phone:</div>
+                                            <div class="info-value">(555) 123-4567</div>
+                                        </div>
+                                        <div class="info-row">
+                                            <div class="info-label">Email:</div>
+                                            <div class="info-value">john.doe@example.com</div>
+                                        </div>
+                                        <div class="info-row">
+                                            <div class="info-label">Insurance:</div>
+                                            <div class="info-value">BlueCross #BC12345678</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Services Selection -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Services</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="pos-service-search">Search Services</label>
+                                    <div class="search-box">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" id="pos-service-search" placeholder="Search services...">
+                                    </div>
+                                </div>
+                                
+                                <div class="services-categories">
+                                    <button class="service-category active">All</button>
+                                    <button class="service-category">Consultations</button>
+                                    <button class="service-category">Tests</button>
+                                    <button class="service-category">Procedures</button>
+                                    <button class="service-category">Therapy</button>
+                                </div>
+                                
+                                <div class="services-grid">
+                                    <div class="service-item" data-id="1" data-price="100.00" data-category="Consultations">
+                                        <div class="service-icon">
+                                            <i class="fas fa-user-md"></i>
+                                        </div>
+                                        <div class="service-details">
+                                            <div class="service-name">General Consultation</div>
+                                            <div class="service-price">$100.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="service-item" data-id="2" data-price="150.00" data-category="Consultations">
+                                        <div class="service-icon">
+                                            <i class="fas fa-heartbeat"></i>
+                                        </div>
+                                        <div class="service-details">
+                                            <div class="service-name">Cardiology Consultation</div>
+                                            <div class="service-price">$150.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="service-item" data-id="3" data-price="80.00" data-category="Tests">
+                                        <div class="service-icon">
+                                            <i class="fas fa-vial"></i>
+                                        </div>
+                                        <div class="service-details">
+                                            <div class="service-name">Blood Test</div>
+                                            <div class="service-price">$80.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="service-item" data-id="4" data-price="120.00" data-category="Tests">
+                                        <div class="service-icon">
+                                            <i class="fas fa-x-ray"></i>
+                                        </div>
+                                        <div class="service-details">
+                                            <div class="service-name">X-Ray</div>
+                                            <div class="service-price">$120.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="service-item" data-id="5" data-price="200.00" data-category="Procedures">
+                                        <div class="service-icon">
+                                            <i class="fas fa-procedures"></i>
+                                        </div>
+                                        <div class="service-details">
+                                            <div class="service-name">Minor Surgery</div>
+                                            <div class="service-price">$200.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="service-item" data-id="6" data-price="75.00" data-category="Therapy">
+                                        <div class="service-icon">
+                                            <i class="fas fa-hand-holding-medical"></i>
+                                        </div>
+                                        <div class="service-details">
+                                            <div class="service-name">Physical Therapy</div>
+                                            <div class="service-price">$75.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Cart and Payment -->
+                    <div class="pos-right">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Current Transaction</h2>
+                            </div>
+                            <div class="cart-container">
+                                <div class="cart-items">
+                                    <div class="cart-item">
+                                        <div class="cart-item-details">
+                                            <div class="cart-item-name">General Consultation</div>
+                                            <div class="cart-item-price">$100.00</div>
+                                        </div>
+                                        <div class="cart-item-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus">-</button>
+                                                <input type="number" class="quantity-input" value="1" min="1">
+                                                <button class="quantity-btn plus">+</button>
+                                            </div>
+                                            <button class="btn-icon remove-item">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="cart-item">
+                                        <div class="cart-item-details">
+                                            <div class="cart-item-name">Blood Test</div>
+                                            <div class="cart-item-price">$80.00</div>
+                                        </div>
+                                        <div class="cart-item-actions">
+                                            <div class="quantity-control">
+                                                <button class="quantity-btn minus">-</button>
+                                                <input type="number" class="quantity-input" value="1" min="1">
+                                                <button class="quantity-btn plus">+</button>
+                                            </div>
+                                            <button class="btn-icon remove-item">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="cart-summary">
+                                    <div class="summary-row">
+                                        <div class="summary-label">Subtotal:</div>
+                                        <div class="summary-value">$180.00</div>
+                                    </div>
+                                    <div class="summary-row">
+                                        <div class="summary-label">Tax (8%):</div>
+                                        <div class="summary-value">$14.40</div>
+                                    </div>
+                                    <div class="summary-row discount">
+                                        <div class="summary-label">Discount:</div>
+                                        <div class="summary-value">
+                                            <div class="discount-input">
+                                                <input type="number" class="form-control" placeholder="0.00">
+                                                <select class="discount-type">
+                                                    <option value="amount">$</option>
+                                                    <option value="percent">%</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="summary-divider"></div>
+                                    <div class="summary-row total">
+                                        <div class="summary-label">Total:</div>
+                                        <div class="summary-value">$194.40</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-options">
+                                    <h3>Payment Method</h3>
+                                    <div class="payment-methods">
+                                        <div class="payment-method active">
+                                            <i class="fas fa-money-bill-alt"></i>
+                                            <span>Cash</span>
+                                        </div>
+                                        <div class="payment-method">
+                                            <i class="fas fa-credit-card"></i>
+                                            <span>Credit Card</span>
+                                        </div>
+                                        <div class="payment-method">
+                                            <i class="fas fa-credit-card"></i>
+                                            <span>Debit Card</span>
+                                        </div>
+                                        <div class="payment-method">
+                                            <i class="fas fa-file-medical"></i>
+                                            <span>Insurance</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payment-details cash-payment">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="cash-amount">Amount Received</label>
+                                                <input type="number" id="cash-amount" class="form-control" value="200.00">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cash-change">Change</label>
+                                                <input type="number" id="cash-change" class="form-control" value="5.60" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payment-details card-payment" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="card-number">Card Number</label>
+                                            <input type="text" id="card-number" class="form-control" placeholder="XXXX XXXX XXXX XXXX">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="card-expiry">Expiry Date</label>
+                                                <input type="text" id="card-expiry" class="form-control" placeholder="MM/YY">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="card-cvv">CVV</label>
+                                                <input type="text" id="card-cvv" class="form-control" placeholder="XXX">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payment-details insurance-payment" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="insurance-provider">Insurance Provider</label>
+                                            <select id="insurance-provider" class="form-control">
+                                                <option value="">Select provider</option>
+                                                <option value="bluecross">BlueCross BlueShield</option>
+                                                <option value="aetna">Aetna</option>
+                                                <option value="cigna">Cigna</option>
+                                                <option value="united">UnitedHealthcare</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="insurance-id">Member ID</label>
+                                            <input type="text" id="insurance-id" class="form-control" placeholder="Enter member ID">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="copay-amount">Copay Amount</label>
+                                            <input type="number" id="copay-amount" class="form-control" placeholder="0.00">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="payment-notes">Notes</label>
+                                        <textarea id="payment-notes" class="form-control" rows="2" placeholder="Enter payment notes"></textarea>
+                                    </div>
+                                    
+                                    <div class="payment-actions">
+                                        <button class="btn btn-outline" id="cancel-payment-btn">
+                                            <i class="fas fa-times"></i> Cancel
+                                        </button>
+                                        <button class="btn btn-primary" id="process-payment-btn">
+                                            <i class="fas fa-check"></i> Process Payment
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Payment Success Modal -->
+    <div class="modal" id="payment-success-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Payment Successful</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h4>Transaction Complete</h4>
+                <p>Payment of <strong>$194.40</strong> has been processed successfully.</p>
+                <div class="transaction-details">
+                    <div class="detail-row">
+                        <div class="detail-label">Transaction ID:</div>
+                        <div class="detail-value">TRX-2025-0025</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Date & Time:</div>
+                        <div class="detail-value">May 1, 2025 11:30 AM</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Payment Method:</div>
+                        <div class="detail-value">Cash</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Patient:</div>
+                        <div class="detail-value">John Doe</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline">
+                    <i class="fas fa-print"></i> Print Receipt
+                </button>
+                <button class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> Email Receipt
+                </button>
+                <button class="btn btn-primary" data-dismiss="modal">
+                    <i class="fas fa-check"></i> Done
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dropdown functionality
+            const dropdownBtns = document.querySelectorAll('.dropdown .btn-icon, .dropdown .avatar-btn');
+            
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const menu = this.nextElementSibling;
+                    menu.classList.toggle('show');
+                    
+                    // Close other dropdowns
+                    dropdownBtns.forEach(otherBtn => {
+                        if (otherBtn !== btn) {
+                            const otherMenu = otherBtn.nextElementSibling;
+                            if (otherMenu) {
+                                otherMenu.classList.remove('show');
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            window.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+            });
+
+            // Service category selection
+            const serviceCategories = document.querySelectorAll('.service-category');
+            const serviceItems = document.querySelectorAll('.service-item');
+            
+            serviceCategories.forEach(category => {
+                category.addEventListener('click', function() {
+                    // Remove active class from all categories
+                    serviceCategories.forEach(cat => {
+                        cat.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked category
+                    this.classList.add('active');
+                    
+                    const selectedCategory = this.textContent;
+                    
+                    // Show/hide service items based on category
+                    serviceItems.forEach(item => {
+                        if (selectedCategory === 'All' || item.dataset.category === selectedCategory) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Service item selection (add to cart)
+            serviceItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // In a real application, this would add the item to the cart
+                    alert(`Added ${this.querySelector('.service-name').textContent} to cart`);
+                });
+            });
+
+            // Payment method selection
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            const paymentDetails = document.querySelectorAll('.payment-details');
+            
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    // Remove active class from all methods
+                    paymentMethods.forEach(m => {
+                        m.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked method
+                    this.classList.add('active');
+                    
+                    // Hide all payment details
+                    paymentDetails.forEach(detail => {
+                        detail.style.display = 'none';
+                    });
+                    
+                    // Show the corresponding payment details
+                    const methodName = this.querySelector('span').textContent.toLowerCase();
+                    
+                    if (methodName === 'cash') {
+                        document.querySelector('.cash-payment').style.display = '';
+                    } else if (methodName === 'credit card' || methodName === 'debit card') {
+                        document.querySelector('.card-payment').style.display = '';
+                    } else if (methodName === 'insurance') {
+                        document.querySelector('.insurance-payment').style.display = '';
+                    }
+                });
+            });
+
+            // Quantity control
+            const minusBtns = document.querySelectorAll('.quantity-btn.minus');
+            const plusBtns = document.querySelectorAll('.quantity-btn.plus');
+            
+            minusBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const input = this.nextElementSibling;
+                    let value = parseInt(input.value);
+                    if (value > 1) {
+                        input.value = value - 1;
+                    }
+                });
+            });
+            
+            plusBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    let value = parseInt(input.value);
+                    input.value = value + 1;
+                });
+            });
+
+            // Remove item from cart
+            const removeItemBtns = document.querySelectorAll('.remove-item');
+            
+            removeItemBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const cartItem = this.closest('.cart-item');
+                    cartItem.remove();
+                });
+            });
+
+            // Process payment button
+            const processPaymentBtn = document.getElementById('process-payment-btn');
+            const paymentSuccessModal = document.getElementById('payment-success-modal');
+            const closeSuccessModal = paymentSuccessModal.querySelector('.close-modal');
+            const doneBtn = paymentSuccessModal.querySelector('[data-dismiss="modal"]');
+            
+            processPaymentBtn.addEventListener('click', function() {
+                paymentSuccessModal.style.display = 'flex';
+            });
+            
+            closeSuccessModal.addEventListener('click', function() {
+                paymentSuccessModal.style.display = 'none';
+            });
+            
+            doneBtn.addEventListener('click', function() {
+                paymentSuccessModal.style.display = 'none';
+                // In a real application, this would reset the POS screen
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === paymentSuccessModal) {
+                    paymentSuccessModal.style.display = 'none';
+                }
+            });
+
+            // Calculate change for cash payment
+            const cashAmountInput = document.getElementById('cash-amount');
+            const cashChangeInput = document.getElementById('cash-change');
+            
+            cashAmountInput.addEventListener('input', function() {
+                const cashAmount = parseFloat(this.value) || 0;
+                const totalAmount = 194.40; // In a real app, this would be calculated dynamically
+                const change = cashAmount - totalAmount;
+                
+                cashChangeInput.value = change > 0 ? change.toFixed(2) : '0.00';
+            });
+        });
+    </script>
+</body>
+</html>

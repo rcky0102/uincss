@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Payment Method | Medical Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="patient-styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <a href="#" class="logo">Medical Clinic</a>
+            <div class="header-actions">
+                <button class="btn-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="dropdown">
+                    <button class="avatar-btn">
+                        <div class="avatar">
+                            <span class="avatar-fallback">JD</span>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-header">
+                            <div class="user-name">John Doe</div>
+                            <div class="user-email">john.doe@example.com</div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item text-danger">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-nav">
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Appointments</span>
+                    </a>
+                    <a href="#" class="sidebar-item active">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Payments</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Medical Records</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-pills"></i>
+                        <span>Medications</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Messages</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="page-header">
+                    <h1>Add Payment Method</h1>
+                    <a href="payments.html" class="btn btn-outline">
+                        <i class="fas fa-arrow-left"></i> Back to Payments
+                    </a>
+                </div>
+
+                <!-- Payment Method Form -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Payment Method Details</h3>
+                    </div>
+                    <form>
+                        <div style="padding: 20px;">
+                            <!-- Payment Method Type Selection -->
+                            <div style="margin-bottom: 30px;">
+                                <label style="display: block; margin-bottom: 15px; font-weight: bold;">Payment Method Type</label>
+                                
+                                <div style="display: flex; gap: 15px;">
+                                    <div style="flex: 1; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 12px; padding: 15px; cursor: pointer; position: relative; background-color: rgba(0, 66, 88, 0.05);">
+                                        <input type="radio" name="payment-type" id="credit-card" checked style="position: absolute; top: 15px; right: 15px;">
+                                        <label for="credit-card" style="cursor: pointer; display: block;">
+                                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(0, 66, 88, 0.1); display: flex; align-items: center; justify-content: center; color: var(--primary); margin-right: 10px;">
+                                                    <i class="fas fa-credit-card"></i>
+                                                </div>
+                                                <div>
+                                                    <h4 style="margin: 0;">Credit or Debit Card</h4>
+                                                </div>
+                                            </div>
+                                            <p style="margin: 0; font-size: 14px; color: var(--text-light);">Add a credit or debit card for secure payments</p>
+                                        </label>
+                                    </div>
+                                    
+                                    <div style="flex: 1; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 12px; padding: 15px; cursor: pointer; position: relative;">
+                                        <input type="radio" name="payment-type" id="bank-account" style="position: absolute; top: 15px; right: 15px;">
+                                        <label for="bank-account" style="cursor: pointer; display: block;">
+                                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: rgba(0, 66, 88, 0.1); display: flex; align-items: center; justify-content: center; color: var(--primary); margin-right: 10px;">
+                                                    <i class="fas fa-university"></i>
+                                                </div>
+                                                <div>
+                                                    <h4 style="margin: 0;">Bank Account</h4>
+                                                </div>
+                                            </div>
+                                            <p style="margin: 0; font-size: 14px; color: var(--text-light);">Link your checking account for direct payments</p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Credit Card Details (shown by default) -->
+                            <div id="credit-card-details">
+                                <h4 style="margin-top: 0; margin-bottom: 20px; color: var(--primary);">Card Information</h4>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <label for="card-name" style="display: block; margin-bottom: 8px; font-weight: bold;">Cardholder Name</label>
+                                    <input type="text" id="card-name" placeholder="Name as it appears on card" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                </div>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <label for="card-number" style="display: block; margin-bottom: 8px; font-weight: bold;">Card Number</label>
+                                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                </div>
+                                
+                                <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                                    <div style="flex: 1;">
+                                        <label for="card-expiry" style="display: block; margin-bottom: 8px; font-weight: bold;">Expiration Date</label>
+                                        <input type="text" id="card-expiry" placeholder="MM/YY" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <label for="card-cvc" style="display: block; margin-bottom: 8px; font-weight: bold;">Security Code (CVC)</label>
+                                        <input type="text" id="card-cvc" placeholder="123" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-bottom: 30px;">
+                                    <div style="display: flex; align-items: center;">
+                                        <input type="checkbox" id="default-card" style="margin-right: 10px;">
+                                        <label for="default-card">Set as default payment method</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bank Account Details (hidden by default) -->
+                            <div id="bank-account-details" style="display: none;">
+                                <h4 style="margin-top: 0; margin-bottom: 20px; color: var(--primary);">Bank Account Information</h4>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <label for="account-holder" style="display: block; margin-bottom: 8px; font-weight: bold;">Account Holder Name</label>
+                                    <input type="text" id="account-holder" placeholder="Full name on account" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                </div>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <label for="account-type" style="display: block; margin-bottom: 8px; font-weight: bold;">Account Type</label>
+                                    <select id="account-type" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                        <option value="checking">Checking</option>
+                                        <option value="savings">Savings</option>
+                                    </select>
+                                </div>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <label for="routing-number" style="display: block; margin-bottom: 8px; font-weight: bold;">Routing Number</label>
+                                    <input type="text" id="routing-number" placeholder="9 digit routing number" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                </div>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <label for="account-number" style="display: block; margin-bottom: 8px; font-weight: bold;">Account Number</label>
+                                    <input type="text" id="account-number" placeholder="Account number" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                </div>
+                                
+                                <div style="margin-bottom: 30px;">
+                                    <div style="display: flex; align-items: center;">
+                                        <input type="checkbox" id="default-bank" style="margin-right: 10px;">
+                                        <label for="default-bank">Set as default payment method</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Billing Address -->
+                            <div style="margin-bottom: 30px;">
+                                <h4 style="margin-top: 0; margin-bottom: 20px; color: var(--primary);">Billing Address</h4>
+                                
+                                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                                    <input type="radio" name="billing-address" id="same-address" checked style="margin-right: 10px;">
+                                    <label for="same-address">Same as my profile address</label>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                                    <input type="radio" name="billing-address" id="different-address" style="margin-right: 10px;">
+                                    <label for="different-address">Use a different billing address</label>
+                                </div>
+                                
+                                <!-- Different Address Form (hidden by default) -->
+                                <div id="different-address-form" style="display: none; margin-top: 20px;">
+                                    <div style="margin-bottom: 15px;">
+                                        <label for="address-line1" style="display: block; margin-bottom: 8px; font-weight: bold;">Address Line 1</label>
+                                        <input type="text" id="address-line1" placeholder="Street address" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                    </div>
+                                    
+                                    <div style="margin-bottom: 15px;">
+                                        <label for="address-line2" style="display: block; margin-bottom: 8px; font-weight: bold;">Address Line 2 (Optional)</label>
+                                        <input type="text" id="address-line2" placeholder="Apartment, suite, unit, etc." style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                    </div>
+                                    
+                                    <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                                        <div style="flex: 2;">
+                                            <label for="city" style="display: block; margin-bottom: 8px; font-weight: bold;">City</label>
+                                            <input type="text" id="city" placeholder="City" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <label for="state" style="display: block; margin-bottom: 8px; font-weight: bold;">State</label>
+                                            <input type="text" id="state" placeholder="State" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <label for="zip" style="display: block; margin-bottom: 8px; font-weight: bold;">ZIP Code</label>
+                                            <input type="text" id="zip" placeholder="ZIP" style="width: 100%; padding: 10px 15px; border-radius: 50px; border: 1px solid rgba(0, 0, 0, 0.1);">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Security Notice -->
+                            <div style="background-color: #f9f9f9; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                                    <i class="fas fa-shield-alt" style="color: var(--primary); margin-top: 2px;"></i>
+                                    <div>
+                                        <h4 style="margin-top: 0; margin-bottom: 5px; color: var(--primary);">Secure Payment Information</h4>
+                                        <p style="margin: 0; font-size: 14px;">Your payment information is encrypted and securely stored. We comply with PCI DSS standards for secure payment processing.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div style="margin-bottom: 20px;">
+                                <div style="display: flex; align-items: flex-start;">
+                                    <input type="checkbox" id="terms" style="margin-right: 10px; margin-top: 3px;">
+                                    <label for="terms" style="font-size: 14px;">I authorize Medical Clinic to store my payment information for future payments. I have read and agree to the <a href="#" style="color: var(--primary);">Terms and Conditions</a>.</label>
+                                </div>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div style="display: flex; justify-content: flex-end; gap: 15px;">
+                                <a href="payments.html" class="btn btn-outline">Cancel</a>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-plus"></i> Add Payment Method
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownBtns = document.querySelectorAll('.dropdown .btn-icon, .dropdown .avatar-btn');
+
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const menu = this.nextElementSibling;
+                    menu.classList.toggle('show');
+                    
+                    // Close other dropdowns
+                    dropdownBtns.forEach(otherBtn => {
+                        if (otherBtn !== btn) {
+                            const otherMenu = otherBtn.nextElementSibling;
+                            if (otherMenu) {
+                                otherMenu.classList.remove('show');
+                            }
+                        }
+                    });
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            window.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+            });
+
+            // Payment method type toggle
+            const creditCardRadio = document.getElementById('credit-card');
+            const bankAccountRadio = document.getElementById('bank-account');
+            const creditCardDetails = document.getElementById('credit-card-details');
+            const bankAccountDetails = document.getElementById('bank-account-details');
+            
+            creditCardRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    creditCardDetails.style.display = 'block';
+                    bankAccountDetails.style.display = 'none';
+                    
+                    // Update styling
+                    this.parentElement.style.backgroundColor = 'rgba(0, 66, 88, 0.05)';
+                    bankAccountRadio.parentElement.style.backgroundColor = '';
+                }
+            });
+            
+            bankAccountRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    creditCardDetails.style.display = 'none';
+                    bankAccountDetails.style.display = 'block';
+                    
+                    // Update styling
+                    this.parentElement.style.backgroundColor = 'rgba(0, 66, 88, 0.05)';
+                    creditCardRadio.parentElement.style.backgroundColor = '';
+                }
+            });
+
+            // Billing address toggle
+            const sameAddressRadio = document.getElementById('same-address');
+            const differentAddressRadio = document.getElementById('different-address');
+            const differentAddressForm = document.getElementById('different-address-form');
+            
+            sameAddressRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    differentAddressForm.style.display = 'none';
+                }
+            });
+            
+            differentAddressRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    differentAddressForm.style.display = 'block';
+                }
+            });
+
+            // Form validation
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Check if terms are accepted
+                const termsCheckbox = document.getElementById('terms');
+                if (!termsCheckbox.checked) {
+                    alert('Please accept the terms and conditions to proceed.');
+                    return;
+                }
+                
+                // Basic validation
+                let isValid = true;
+                let errorMessage = '';
+                
+                if (creditCardRadio.checked) {
+                    // Validate credit card fields
+                    const cardName = document.getElementById('card-name').value;
+                    const cardNumber = document.getElementById('card-number').value;
+                    const cardExpiry = document.getElementById('card-expiry').value;
+                    const cardCvc = document.getElementById('card-cvc').value;
+                    
+                    if (!cardName) {
+                        isValid = false;
+                        errorMessage += 'Cardholder name is required.\n';
+                    }
+                    
+                    if (!cardNumber || cardNumber.replace(/\s/g, '').length < 13) {
+                        isValid = false;
+                        errorMessage += 'Please enter a valid card number.\n';
+                    }
+                    
+                    if (!cardExpiry || !/^\d{2}\/\d{2}$/.test(cardExpiry)) {
+                        isValid = false;
+                        errorMessage += 'Please enter a valid expiration date (MM/YY).\n';
+                    }
+                    
+                    if (!cardCvc || !/^\d{3,4}$/.test(cardCvc)) {
+                        isValid = false;
+                        errorMessage += 'Please enter a valid security code.\n';
+                    }
+                } else {
+                    // Validate bank account fields
+                    const accountHolder = document.getElementById('account-holder').value;
+                    const routingNumber = document.getElementById('routing-number').value;
+                    const accountNumber = document.getElementById('account-number').value;
+                    
+                    if (!accountHolder) {
+                        isValid = false;
+                        errorMessage += 'Account holder name is required.\n';
+                    }
+                    
+                    if (!routingNumber || !/^\d{9}$/.test(routingNumber)) {
+                        isValid = false;
+                        errorMessage += 'Please enter a valid 9-digit routing number.\n';
+                    }
+                    
+                    if (!accountNumber) {
+                        isValid = false;
+                        errorMessage += 'Account number is required.\n';
+                    }
+                }
+                
+                if (differentAddressRadio.checked) {
+                    // Validate address fields
+                    const addressLine1 = document.getElementById('address-line1').value;
+                    const city = document.getElementById('city').value;
+                    const state = document.getElementById('state').value;
+                    const zip = document.getElementById('zip').value;
+                    
+                    if (!addressLine1) {
+                        isValid = false;
+                        errorMessage += 'Address line 1 is required.\n';
+                    }
+                    
+                    if (!city) {
+                        isValid = false;
+                        errorMessage += 'City is required.\n';
+                    }
+                    
+                    if (!state) {
+                        isValid = false;
+                        errorMessage += 'State is required.\n';
+                    }
+                    
+                    if (!zip) {
+                        isValid = false;
+                        errorMessage += 'ZIP code is required.\n';
+                    }
+                }
+                
+                if (!isValid) {
+                    alert('Please correct the following errors:\n\n' + errorMessage);
+                    return;
+                }
+                
+                // If all validation passes, show success message
+                alert('Payment method added successfully!');
+                window.location.href = 'payments.html';
+            });
+        });
+    </script>
+</body>
+</html>

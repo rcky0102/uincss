@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Record Type | Admin Settings | Medical Clinic</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        .form-section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -0.5rem;
+        }
+        .form-col {
+            flex: 1;
+            padding: 0.5rem;
+            min-width: 250px;
+        }
+        .required-field::after {
+            content: "*";
+            color: #dc3545;
+            margin-left: 4px;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        .form-text {
+            color: #6c757d;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <a href="#" class="logo">Medical Clinic</a>
+            <div class="header-actions">
+                <button class="btn-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="dropdown">
+                    <button class="avatar-btn">
+                        <div class="avatar">
+                            <span class="avatar-fallback">JS</span>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-header">
+                            <div class="user-name">Dr. John Smith</div>
+                            <div class="user-email">john.smith@example.com</div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item text-danger">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Appointments</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Medical Records</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-users"></i>
+                        <span>Patients</span>
+                    </a>
+                    <a href="#" class="sidebar-item active">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Settings Sidebar -->
+            <aside class="settings-sidebar">
+                <div class="settings-sidebar-header">
+                    <h3>Settings</h3>
+                </div>
+                <nav class="settings-nav">
+                    <a href="#" class="settings-nav-item">
+                        <i class="fas fa-hospital"></i>
+                        <span>Clinic Information</span>
+                    </a>
+                    <a href="#" class="settings-nav-item">
+                        <i class="fas fa-user-md"></i>
+                        <span>Doctors</span>
+                    </a>
+                    <a href="#" class="settings-nav-item">
+                        <i class="fas fa-stethoscope"></i>
+                        <span>Specializations</span>
+                    </a>
+                    <a href="#" class="settings-nav-item active">
+                        <i class="fas fa-file-medical-alt"></i>
+                        <span>Record Types</span>
+                    </a>
+                    <a href="#" class="settings-nav-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Appointment Types</span>
+                    </a>
+                    <a href="#" class="settings-nav-item">
+                        <i class="fas fa-users-cog"></i>
+                        <span>User Management</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="settings-content">
+                <div class="settings-section">
+                    <div class="settings-header">
+                        <h1>Create Record Type</h1>
+                        <p>Add a new medical record type to the system</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="record-type-form" action="#" method="POST">
+                                <div class="form-section">
+                                    <h3 class="form-section-title">Basic Information</h3>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="name" class="required-field">Record Type Name</label>
+                                                <input type="text" id="name" name="name" class="form-control" required>
+                                                <small class="form-text">Enter the full name of the record type</small>
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="specialization_ids" class="required-field">Applicable Specializations</label>
+                                                <select id="specialization_ids" name="specialization_ids[]" class="form-control" multiple required>
+                                                    <option value="1">General Medicine</option>
+                                                    <option value="2">Cardiology</option>
+                                                    <option value="3">Neurology</option>
+                                                    <option value="4">Orthopedics</option>
+                                                    <option value="5">Pediatrics</option>
+                                                    <option value="6">Dermatology</option>
+                                                    <option value="7">Ophthalmology</option>
+                                                    <option value="8">Radiology</option>
+                                                    <option value="9">Pathology</option>
+                                                </select>
+                                                <small class="form-text">Select one or more specializations related to this record type.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-section">
+                                    <h3 class="form-section-title">Fields Configuration</h3>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="include-standard-fields" class="required-field">Standard Fields</label>
+                                                <div>
+                                                    <input type="checkbox" id="include-patient-info" name="standard_fields[]" value="patient_info" checked disabled>
+                                                    <label for="include-patient-info">Patient Information (Required)</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" id="include-date" name="standard_fields[]" value="date" checked disabled>
+                                                    <label for="include-date">Date (Required)</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" id="include-diagnosis" name="standard_fields[]" value="diagnosis" checked>
+                                                    <label for="include-diagnosis">Diagnosis</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" id="include-notes" name="standard_fields[]" value="notes" checked>
+                                                    <label for="include-notes">Notes</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="include-vital-signs">Vital Signs</label>
+                                                <div>
+                                                    <input type="checkbox" id="include-blood-pressure" name="vital_signs[]" value="blood_pressure" checked>
+                                                    <label for="include-blood-pressure">Blood Pressure</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" id="include-temperature" name="vital_signs[]" value="temperature" checked>
+                                                    <label for="include-temperature">Temperature</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" id="include-heart-rate" name="vital_signs[]" value="heart_rate" checked>
+                                                    <label for="include-heart-rate">Heart Rate</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" id="include-respiratory-rate" name="vital_signs[]" value="respiratory_rate" checked>
+                                                    <label for="include-respiratory-rate">Respiratory Rate</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-section">
+                                    <h3 class="form-section-title">Custom Fields</h3>
+                                    <div id="custom-fields-container">
+                                        <div class="custom-field-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                            <input type="text" name="custom_fields[0][name]" class="form-control" placeholder="Field name" style="flex: 2;">
+                                            <select name="custom_fields[0][type]" class="form-control" style="flex: 1;">
+                                                <option value="text">Text</option>
+                                                <option value="number">Number</option>
+                                                <option value="date">Date</option>
+                                                <option value="select">Dropdown</option>
+                                                <option value="checkbox">Checkbox</option>
+                                            </select>
+                                            <button type="button" class="btn-icon delete-field-btn">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-outline" id="add-field-btn" style="margin-top: 10px;">
+                                        <i class="fas fa-plus"></i> Add Custom Field
+                                    </button>
+                                </div>
+
+                                <div class="form-section">
+                                    <h3 class="form-section-title">Additional Settings</h3>
+                                    <div class="form-row">
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="status">Status</label>
+                                                <select id="status" name="status" class="form-control">
+                                                    <option value="active">Active</option>
+                                                    <option value="inactive">Inactive</option>
+                                                </select>
+                                                <small class="form-text">Set the current status of the record type</small>
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="form-group">
+                                                <label for="description">Description</label>
+                                                <textarea id="description" name="description" class="form-control" rows="3"></textarea>
+                                                <small class="form-text">Provide a brief description of this record type</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <a href="record-types.html" class="btn btn-outline">Cancel</a>
+                                    <button type="submit" class="btn btn-primary">Create Record Type</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dropdown functionality
+            const dropdownBtns = document.querySelectorAll('.dropdown .btn-icon, .dropdown .avatar-btn');
+            
+            dropdownBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const menu = this.nextElementSibling;
+                    menu.classList.toggle('show');
+                    
+                    // Close other dropdowns
+                    dropdownBtns.forEach(otherBtn => {
+                        if (otherBtn !== btn) {
+                            const otherMenu = otherBtn.nextElementSibling;
+                            if (otherMenu) {
+                                otherMenu.classList.remove('show');
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            window.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+            });
+
+            // Add custom field
+            let fieldCounter = 1;
+            document.getElementById('add-field-btn').addEventListener('click', function() {
+                const container = document.getElementById('custom-fields-container');
+                const fieldRow = document.createElement('div');
+                fieldRow.className = 'custom-field-row';
+                fieldRow.style = 'display: flex; gap: 10px; margin-bottom: 10px;';
+                
+                fieldRow.innerHTML = `
+                    <input type="text" name="custom_fields[${fieldCounter}][name]" class="form-control" placeholder="Field name" style="flex: 2;">
+                    <select name="custom_fields[${fieldCounter}][type]" class="form-control" style="flex: 1;">
+                        <option value="text">Text</option>
+                        <option value="number">Number</option>
+                        <option value="date">Date</option>
+                        <option value="select">Dropdown</option>
+                        <option value="checkbox">Checkbox</option>
+                    </select>
+                    <button type="button" class="btn-icon delete-field-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                container.appendChild(fieldRow);
+                fieldCounter++;
+                
+                // Add event listener to the delete button
+                fieldRow.querySelector('.delete-field-btn').addEventListener('click', function() {
+                    fieldRow.remove();
+                });
+            });
+
+            // Delete custom field
+            document.querySelectorAll('.delete-field-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.closest('.custom-field-row').remove();
+                });
+            });
+
+            // Form submission
+            document.getElementById('record-type-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // In a real application, you would handle the form submission via AJAX
+                // For this example, we'll just redirect to the record types index page
+                alert('Record type created successfully!');
+                window.location.href = 'record-types.html';
+            });
+        });
+    </script>
+</body>
+</html>
